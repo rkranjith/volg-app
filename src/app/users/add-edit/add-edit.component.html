@@ -1,3 +1,81 @@
-<p>
-  add-edit works!
-</p>
+<div class="row mx-2">
+    <h1 class="ml-3" *ngIf="!form.isEdit">Add user</h1>
+    <h1 class="ml-3" *ngIf="form.isEdit">Edit user</h1>
+
+    <form class="col-12" [formGroup]="addEditUserForm" novalidate>
+        <div class="form-error" *ngIf="addEditUserForm.pristine && addEditUserForm.invalid && form.submitted">
+            All inputs are empty
+        </div>
+        <div class="form-error" *ngIf="addEditUserForm.invalid &&
+            !addEditUserForm.pristine && form.submitted">
+            The required fields aren't filled or the inserted value is invalid
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-6">
+                <div class="form-group"
+                    [ngClass]="{ 'has-error' :addEditUserForm.get('id').invalid && form.submitted }">
+                    <label class="form-label">Id</label>
+                    <input type="number" class="form-control" formControlName="id" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group"
+                    [ngClass]="{ 'has-error' :addEditUserForm.get('name').invalid && form.submitted }">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" formControlName="name" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group"
+                    [ngClass]="{ 'has-error' :addEditUserForm.get('surname').invalid && form.submitted }">
+                    <label class="form-label">Surname</label>
+                    <input type="text" class="form-control" formControlName="surname" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group"
+                    [ngClass]="{ 'has-error' :addEditUserForm.get('birthdate').invalid && form.submitted }">
+                    <label class="form-label">Birth Date</label>
+                    <input type="date" class="form-control" formControlName="birthdate" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group"
+                    [ngClass]="{ 'has-error' :addEditUserForm.get('phone').invalid && form.submitted }">
+                    <label class="form-label">Phone</label>
+                    <input type="text" class="form-control" formControlName="phone" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group"
+                    [ngClass]="{ 'has-error' :addEditUserForm.get('city').invalid && form.submitted }">
+                    <label class="form-label">City</label>
+                    <input type="text" class="form-control" formControlName="city" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group"
+                    [ngClass]="{ 'has-error' :addEditUserForm.get('street').invalid && form.submitted }">
+                    <label class="form-label">Street</label>
+                    <input type="text" class="form-control" formControlName="street" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group"
+                    [ngClass]="{ 'has-error' :addEditUserForm.get('number').invalid && form.submitted }">
+                    <label class="form-label">Number</label>
+                    <input type="number" class="form-control" formControlName="number" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 my-4 text-right">
+                <button class="btn" type="button" (click)="goBack()">Cancel</button>
+                <button class="btn btn-primary" type="submit" *ngIf="!form.valid" (click)="onSubmit()">Save</button>
+                <button class="btn btn-primary disabled" type="button" *ngIf="(form.valid && form.submitted)">Saving...</button>
+            </div>
+        </div>
+    </form>
+</div>
