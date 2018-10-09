@@ -4,20 +4,21 @@ import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 
 import { AppModel } from '../../store/model';
-import { Users } from '../model';
+import { Users, User } from '../model';
 import { UserListAction } from './user-list.actions';
 
 @Component({
     selector: 'app-user-list',
     templateUrl: './user-list.component.html',
-    styleUrls: ['./user-list.component.css']
+    styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
 
     private subscribers: Subscription;
+    public userList: User[];
 
     @select(['users'])
-    users$: Observable<Users>;
+    readonly users$: Observable<Users>;
 
     constructor(
         private cdr: ChangeDetectorRef,
@@ -38,6 +39,7 @@ export class UserListComponent implements OnInit {
             if (items.length <= 0) {
                 return;
             }
+            this.userList = items;
         });
     }
 }

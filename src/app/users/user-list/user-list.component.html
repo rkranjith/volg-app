@@ -1,3 +1,56 @@
-<p>
-    user-list works!
-</p>
+<div *ngIf="(users$ | async)?.loading">Loading...</div>
+
+<div class="row mx-2">
+    <h1 class="col-7">User List</h1>
+    <div class="col-5 my-2 pull-left">
+        <div class="row">
+            <div class="col-4">
+                <a class="btn btn-primary" href="#" role="button">+ Add user</a>
+            </div>
+            <div class="col-8">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-clear">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" id="button-clear">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Birthdate</th>
+                    <th>Phone</th>
+                    <th>City</th>
+                    <th>Street</th>
+                    <th>Number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of (users$ | async)?.items">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.surname }}</td>
+                    <td>{{ user.birthDate }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.city }}</td>
+                    <td>{{ user.street }}</td>
+                    <td>{{ user.number }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
+                        <a class="btn btn-danger btn-sm" href="#" role="button">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

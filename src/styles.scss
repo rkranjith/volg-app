@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~_variables.scss';
+
+body.app {
+    background-color: $background;
+    font-family: $simple-process-font-family;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    position: relative;
+    min-height: 100vh;
+
+    :focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
