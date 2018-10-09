@@ -3,18 +3,18 @@ import { dispatch } from '@angular-redux/store';
 
 @Injectable()
 export class UserListAction {
-    // static readonly USERS_LOAD = 'USERS_LOAD';
+    static readonly USERS_LOAD = 'USERS_LOAD';
     static readonly USERS_LOAD_STARTED = 'USERS_LOAD_STARTED';
     static readonly USERS_LOAD_SUCCEEDED = 'USERS_LOAD_SUCCEEDED';
     static readonly USERS_LOAD_FAILED = 'USERS_LOAD_FAILED';
 
-    // @dispatch()
-    // loadUsers() {
-    //     return {
-    //         type: UserListAction.USERS_LOAD,
-    //         payload: null,
-    //     };
-    // }
+    @dispatch()
+    loadUsers() {
+        return {
+            type: UserListAction.USERS_LOAD,
+            payload: null,
+        };
+    }
 
     loadStarted() {
         return {
