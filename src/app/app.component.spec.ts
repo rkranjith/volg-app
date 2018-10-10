@@ -1,4 +1,9 @@
 import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgReduxModule } from '@angular-redux/store';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -7,6 +12,12 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        HttpClientModule,
+        RouterTestingModule,
+        FormsModule,
+        NgReduxModule
+    ],
     }).compileComponents();
   }));
 
@@ -16,16 +27,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'volTest'`, () => {
+  it(`should have as title 'VolgApp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('volTest');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to volTest!');
+    expect(app.title).toEqual('VolgApp');
   });
 });

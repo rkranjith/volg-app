@@ -1,10 +1,3 @@
-export interface Users {
-    complete: boolean;
-    items: User[];
-    error: any;
-    loading: boolean;
-}
-
 export interface User {
     id: string;
     name: string;
@@ -14,4 +7,11 @@ export interface User {
     city: string;
     street: string;
     number: string;
+}
+
+export interface Users {
+    complete: boolean;
+    items: User[];
+    error: any;
+    loading: boolean;
 }
