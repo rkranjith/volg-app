@@ -20,6 +20,9 @@ export class UserListComponent implements OnInit, OnDestroy {
     @select(['users'])
     readonly users$: Observable<Users>;
 
+    @select(['users', 'items'])
+    readonly userList$: Observable<Users>;
+
     constructor(
         private cdr: ChangeDetectorRef,
         private ngRedux: NgRedux<AppModel>,
@@ -29,7 +32,7 @@ export class UserListComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.ngRedux.dispatch(this.actions.loadUsers());
+        this.loadUsers();
     }
 
     ngOnDestroy() {
@@ -37,7 +40,11 @@ export class UserListComponent implements OnInit, OnDestroy {
         this.subscribers.unsubscribe();
     }
 
-    initUsers() {
+    public loadUsers(): void {
+        this.ngRedux.dispatch(this.actions.loadUsers());
+    }
+
+    public initUsers(): void {
         this.subscribers = this.users$.subscribe(res => {
             const items = res.items;
 
@@ -51,6 +58,20 @@ export class UserListComponent implements OnInit, OnDestroy {
 
     public getUsers(): void {
         this.ngRedux.dispatch(this.actions.loadStarted());
+    }
+
+    public onSearch(users: string, str: string) {
+        let result: User[] = [];
+        if (str.length === 0) {
+            this.initUsers();
+            return;
+        }
+        JSON.parse(users).forEach( user => {
+            if (str.length > 0 && user.name.indexOf(str.toLowerCase()) !== -1) {
+                result.push(user);
+            }
+        });
+        this.userList = result;
     }
 
     public confirmDelete(user, i) {

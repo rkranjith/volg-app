@@ -8,10 +8,15 @@
                 <a class="btn btn-primary" [routerLink]="['/user/add']" role="button">+ Add user</a>
             </div>
             <div class="col-8">
+                <input  #usersData [value]="(users$ | async).items | json" type="hidden" />
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-clear">
+                    <input type="text" #search class="form-control" placeholder="Search by name"
+                        aria-label="Search by name" aria-describedby="button-clear"
+                        (keyup.enter)="onSearch(usersData.value, $event.target.value)">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-primary" type="button" id="button-clear">Clear</button>
+                        <button class="btn btn-outline-primary" type="button"
+                            (click)="(search.value='');onSearch(usersData.value, '')"
+                            id="button-clear">Clear</button>
                     </div>
                 </div>
             </div>
@@ -34,7 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of (users$ | async)?.items; let i = index">
+                <tr *ngFor="let user of userList; let i = index">
                     <td>{{ user.id }}</td>
                     <td>{{ user.name }}</td>
                     <td>{{ user.surname }}</td>
