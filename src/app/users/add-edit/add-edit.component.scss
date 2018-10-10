@@ -1,0 +1,11 @@
+@import '~_variables.scss';
+
+.has-error {
+    .form-label {
+        color: $error;
+    }
+
+    .form-control {
+        border-color: $error;
+    }
+}
