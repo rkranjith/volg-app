@@ -60,17 +60,23 @@ export class UserListComponent implements OnInit, OnDestroy {
         this.ngRedux.dispatch(this.actions.loadStarted());
     }
 
-    public onSearch(users: string, str: string) {
+    public onSearch(data: string, str: string) {
         let result: User[] = [];
+        const users: User[] = JSON.parse(data);
+        if (str.length < 3) {
+            result = users;
+        }
         if (str.length === 0) {
             this.initUsers();
             return;
         }
-        JSON.parse(users).forEach( user => {
-            if (str.length > 0 && user.name.indexOf(str.toLowerCase()) !== -1) {
-                result.push(user);
-            }
-        });
+        if (str.length >= 3) {
+            users.forEach( user => {
+                if (user.name.toLowerCase().indexOf(str.toLowerCase()) !== -1) {
+                    result.push(user);
+                }
+            });
+        }
         this.userList = result;
     }
 
