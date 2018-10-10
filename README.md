@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.10.
 
+## App features
+Users CRUD (Create, Read, Update & Delete) module.
+- All operations done in Redux state.
+- Search by name in list view
+- Handled basic validation in Add/Edit view.
+- App hosted link [https://volg-app.herokuapp.com/](https://volg-app.herokuapp.com/)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
