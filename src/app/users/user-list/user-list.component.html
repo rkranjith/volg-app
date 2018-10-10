@@ -12,7 +12,7 @@
                 <div class="input-group mb-3">
                     <input type="text" #search class="form-control" placeholder="Search by name"
                         aria-label="Search by name" aria-describedby="button-clear"
-                        (keyup.enter)="onSearch(usersData.value, $event.target.value)">
+                        (keyup)="onSearch(usersData.value, $event.target.value)">
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button"
                             (click)="(search.value='');onSearch(usersData.value, '')"
@@ -38,7 +38,7 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="userList.length > 0">
                 <tr *ngFor="let user of userList; let i = index">
                     <td>{{ user.id }}</td>
                     <td>{{ user.name }}</td>
@@ -51,6 +51,13 @@
                     <td>
                         <a class="btn btn-primary btn-sm" [routerLink]="['/user/edit/'+i]" role="button">Edit</a>
                         <input type="button" class="btn btn-danger btn-sm" (click)="confirmDelete(user, i)" value="Delete">
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="userList.length <= 0">
+                <tr>
+                    <td colspan="9" class="font-italic text-center text-danger">
+                        <h6>No data found.</h6>
                     </td>
                 </tr>
             </tbody>
