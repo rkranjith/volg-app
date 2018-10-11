@@ -3,7 +3,7 @@ import { composeReducers, defaultFormReducer } from '@angular-redux/form';
 import { routerReducer } from '@angular-redux/router';
 
 
-import { createUserListReducer } from '../users/user-list/user-list.reducers';
+import { createUserListReducer } from 'users/user-list/user-list.reducers';
 
 // Define the global store shape by combining our application's
 // reducers together into a given structure.

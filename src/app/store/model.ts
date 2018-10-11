@@ -1,4 +1,4 @@
-import { Users } from '../users/model';
+import { Users } from 'users/model';
 
 export interface AppModel {
     routes?: any;

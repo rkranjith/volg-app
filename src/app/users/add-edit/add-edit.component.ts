@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgRedux } from '@angular-redux/store';
 
-import { AppModel } from '../../store/model';
-import { Users, User } from '../model';
+import { AppModel } from 'store/model';
+import { Users, User } from 'users/model';
 
 @Component({
   selector: 'app-add-edit',

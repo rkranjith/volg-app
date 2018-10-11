@@ -9,8 +9,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
-import { StoreModule } from './store/module';
-import { ServiceModule } from './core/services/module';
+import { StoreModule } from 'store/module';
+import { ServiceModule } from 'services/module';
 
 import { UsersModule } from './users/module';
 

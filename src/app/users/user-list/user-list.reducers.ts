@@ -1,7 +1,7 @@
-import { PayloadAction } from '../../core/payload-action.types';
+import { PayloadAction } from 'core/payload-action.types';
 
 import { UserListAction } from './user-list.actions';
-import { User, Users } from '../model';
+import { User, Users } from 'users/model';
 
 const USERS_INITIAL_STATE: Users = {
     items: [],

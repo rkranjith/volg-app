@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createEpicMiddleware } from 'redux-observable';
 
-import { UsersService } from '../../core/services/users.service';
+import { UsersService } from 'services/users.service';
 import { UserListAction } from './user-list.actions';
 import { of } from 'rxjs/observable/of';
 

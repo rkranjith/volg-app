@@ -1,5 +1,5 @@
-import { UserListComponent } from './users/user-list/user-list.component';
-import { UserAddEditComponent } from './users/add-edit/add-edit.component';
+import { UserListComponent } from 'users/user-list/user-list.component';
+import { UserAddEditComponent } from 'users/add-edit/add-edit.component';
 
 export const appRoutes = [
     {

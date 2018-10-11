@@ -17,8 +17,8 @@ import { AppModel } from './model';
 import { rootReducer } from './reducer';
 import { RootEpics } from './epics';
 
-import { UserListAction } from '../users/user-list/user-list.actions';
-import { UserListEpics } from '../users/user-list/user-list.epics';
+import { UserListAction } from 'users/user-list/user-list.actions';
+import { UserListEpics } from 'users/user-list/user-list.epics';
 
 @NgModule({
     imports: [

@@ -3,8 +3,8 @@ import { NgRedux, select } from '@angular-redux/store';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 
-import { AppModel } from '../../store/model';
-import { Users, User } from '../model';
+import { AppModel } from 'store/model';
+import { Users, User } from 'users/model';
 import { UserListAction } from './user-list.actions';
 
 @Component({
